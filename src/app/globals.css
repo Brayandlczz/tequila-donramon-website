@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* ─── Brand tokens ────────────────────────────────────────────────────────── */
+:root {
+  --background: #0a0804;
+  --foreground: #f5f0e8;
+
+  /* Gold palette */
+  --gold:       #c9a84c;
+  --gold-light: #e8c46a;
+  --gold-dark:  #9d7a2f;
+
+  /* Surface scale */
+  --surface-0: #050402;
+  --surface-1: #0a0804;
+  --surface-2: #0d0b07;
+  --surface-3: #111009;
+
+  /* Text scale */
+  --text-primary:   rgba(255, 255, 255, 1);
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --text-muted:     rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Tailwind v4 theme ───────────────────────────────────────────────────── */
+@theme inline {
+  --color-background:  var(--background);
+  --color-foreground:  var(--foreground);
+  --color-gold:        var(--gold);
+  --color-gold-light:  var(--gold-light);
+  --color-gold-dark:   var(--gold-dark);
+  --color-surface-0:   var(--surface-0);
+  --color-surface-1:   var(--surface-1);
+  --color-surface-2:   var(--surface-2);
+  --color-surface-3:   var(--surface-3);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--gold);
+  color: #000;
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: var(--surface-0); }
+::-webkit-scrollbar-thumb  { background: var(--gold-dark); }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ─── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.04; }
+  50%       { opacity: 0.09; }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ─── Hero: cursor blink ─────────────────────────────────────────────────── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
