@@ -29,7 +29,7 @@ export default function Hero() {
 
       <motion.div aria-hidden="true" style={{ y: imageY }} className="absolute inset-0 z-0 will-change-transform">
         <Image
-          src="/images/hero-background.webp"
+          src="/images/backgrounds/hero-bg.avif"
           alt=""
           fill
           priority

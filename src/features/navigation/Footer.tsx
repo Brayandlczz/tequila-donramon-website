@@ -11,7 +11,7 @@ const COLUMNS: FooterColumn[] = [
     links: [
       { label: "¿Cómo funciona?", href: "#personalizacion" },
       { label: "Ocasiones",       href: "#ocasiones"       },
-      { label: "Catálogos",       href: "#catalogos"       },
+      { label: "Complementos",       href: "#catalogos"       },
     ],
   },
   {
@@ -71,7 +71,7 @@ const Logo: FC<{ size?: "sm" | "md" }> = ({ size = "md" }) => (
     ].join(" ")}
   >
     <Image
-      src="/images/logo.webp"
+      src="/images/branding/logo.webp"
       alt="Don Ramón Personalizado"
       fill sizes="144px"
       className="object-contain object-left brightness-0"
@@ -132,7 +132,7 @@ export default function Footer() {
       className="relative w-full overflow-hidden bg-white pt-14 pb-7 sm:pt-16 sm:pb-8"
     >
       <Image
-        src="/images/footer-bg.webp"
+        src="/images/backgrounds/footer-bg.avif"
         alt="" fill sizes="100vw"
         className="object-cover object-bottom opacity-30 pointer-events-none select-none"
         aria-hidden="true"
