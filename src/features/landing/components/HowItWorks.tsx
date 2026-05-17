@@ -24,21 +24,38 @@ const STEPS = [
   },
 ] as const;
 
-const ZOOM = 4;
-const LENS = 200;
+interface Color { id: string; label: string; hex: string }
+
+const COLORS: Color[] = [
+  { id: "red",    label: "Rojo",     hex: "#C0392B" },
+  { id: "blue",   label: "Azul",     hex: "#2471A3" },
+  { id: "green",  label: "Verde",    hex: "#1E8449" },
+  { id: "orange", label: "Naranja",  hex: "#D35400" },
+  { id: "yellow", label: "Amarillo", hex: "#D4AC0D" },
+  { id: "purple", label: "Morado",   hex: "#7D3C98" },
+  { id: "pink",   label: "Rosa",     hex: "#C0507A" },
+  { id: "bronze", label: "Bronce",   hex: "#8B5E3C" },
+  { id: "gold",   label: "Dorado",   hex: "#C9A84C" },
+  { id: "silver", label: "Plateado", hex: "#909497" },
+  { id: "black",  label: "Negro",    hex: "#1C1C1C" },
+];
+
+const ZOOM = 5;
+const LENS = 240;
 
 export default function HowItWorks() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeColor, setActiveColor] = useState<Color>(COLORS[8]);
   const [lens, setLens] = useState<{ x: number; y: number; bg: string } | null>(null);
+
+  const imageSrc = `/images/bottle-colors/${activeColor.id}.webp`;
 
   const handleMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const bgX = ((x / rect.width)  * 100).toFixed(2);
-    const bgY = ((y / rect.height) * 100).toFixed(2);
-    setLens({ x, y, bg: `${bgX}% ${bgY}%` });
+    setLens({ x, y, bg: `${((x / rect.width) * 100).toFixed(2)}% ${((y / rect.height) * 100).toFixed(2)}%` });
   }, []);
 
   const handleLeave = useCallback(() => setLens(null), []);
@@ -51,48 +68,91 @@ export default function HowItWorks() {
     >
       <div className="mx-auto w-full max-w-7xl lg:grid lg:grid-cols-2 lg:min-h-svh">
 
-        {/* Imagen con lupa */}
-        <div
-          ref={containerRef}
-          onMouseMove={handleMove}
-          onMouseLeave={handleLeave}
-          aria-label="Botella Don Ramón Línea Cerámica — mueve el cursor para ver el detalle del grabado"
-          className="group relative flex items-center justify-center overflow-hidden h-[60vw] min-h-[280px] max-h-[480px] cursor-crosshair select-none lg:h-full lg:max-h-none"
-        >
-          <div className="relative h-full w-full">
-            <Image
-              src="/images/products/linea-ceramica.webp"
-              alt="Botella Don Ramón Línea Cerámica con grabado artesanal corte diamante"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              quality={90}
-              className="object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
-            />
+        <div className="flex flex-col lg:h-full">
+          <div
+            ref={containerRef}
+            onMouseMove={handleMove}
+            onMouseLeave={handleLeave}
+            aria-label={`Botella Don Ramón en color ${activeColor.label} — mueve el cursor para ver el detalle`}
+            className="group relative flex-1 overflow-hidden h-[65vw] min-h-[300px] max-h-[520px] cursor-crosshair select-none lg:h-full lg:max-h-none"
+          >
+            <div className="relative h-full w-full translate-y-6">
+              <Image
+                key={imageSrc}
+                src={imageSrc}
+                alt={`Botella Don Ramón personalizada en color ${activeColor.label} con grabado artesanal corte diamante`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={92}
+                className="object-contain object-center transition-opacity duration-300"
+              />
+            </div>
+
+            {lens && (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute z-30 overflow-hidden rounded-full"
+                style={{
+                  width:              LENS,
+                  height:             LENS,
+                  left:               lens.x - LENS / 2,
+                  top:                lens.y - LENS / 2,
+                  backgroundImage:    `url(${imageSrc})`,
+                  backgroundSize:     `${ZOOM * 100}%`,
+                  backgroundPosition: lens.bg,
+                  backgroundRepeat:   "no-repeat",
+                  boxShadow:          "0 0 0 2px rgba(201,168,76,0.6), 0 0 0 4px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.4)",
+                }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="h-px w-4 bg-[var(--gold)]/40" />
+                  <div className="absolute h-4 w-px bg-[var(--gold)]/40" />
+                </div>
+              </div>
+            )}
+
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-[var(--surface-1)] lg:block" />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-[var(--surface-1)] lg:hidden" />
           </div>
 
-          {/* Lupa */}
-          {lens && (
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute z-20 rounded-full border border-[var(--gold)]/40 shadow-[0_0_0_1px_rgba(0,0,0,0.15)] overflow-hidden"
-              style={{
-                width:  LENS,
-                height: LENS,
-                left:   lens.x - LENS / 2,
-                top:    lens.y - LENS / 2,
-                backgroundImage:    `url(${"/images/products/linea-ceramica.webp"})`,
-                backgroundSize:     `${ZOOM * 100}%`,
-                backgroundPosition: lens.bg,
-                backgroundRepeat:   "no-repeat",
-              }}
-            />
-          )}
-
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-[var(--surface-1)] lg:block" />
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-[var(--surface-1)] lg:hidden" />
+          <div className="flex flex-col items-center gap-3 px-4 py-5 lg:py-7">
+            <div role="radiogroup" aria-label="Selecciona un color de grabado" className="flex flex-wrap justify-center gap-3">
+              {COLORS.map((color) => {
+                const isActive = color.id === activeColor.id;
+                return (
+                  <button
+                    key={color.id}
+                    type="button"
+                    role="radio"
+                    onClick={() => setActiveColor(color)}
+                    aria-checked={isActive}
+                    aria-label={color.label}
+                    title={color.label}
+                    className={[
+                      "relative h-7 w-7 cursor-pointer rounded-full transition-all duration-200",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-1)]",
+                      isActive ? "scale-125" : "scale-100 opacity-60 hover:opacity-90 hover:scale-110",
+                    ].join(" ")}
+                    style={{ backgroundColor: color.hex }}
+                  >
+                    {isActive && (
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 rounded-full"
+                        style={{ boxShadow: `0 0 0 2px var(--surface-1), 0 0 0 4px ${color.hex}` }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="flex items-center gap-2">
+              <span aria-hidden="true" className="h-2 w-2 rounded-full" style={{ backgroundColor: activeColor.hex }} />
+              <p className="text-[10px] font-medium uppercase tracking-[0.4em] text-white/60">{activeColor.label}</p>
+            </div>
+          </div>
         </div>
 
-        {/* Texto */}
         <div className="flex flex-col justify-center px-5 py-12 sm:px-10 sm:py-16 lg:px-14 lg:py-24">
           <motion.div
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
@@ -136,12 +196,8 @@ export default function HowItWorks() {
                   </span>
                 </div>
                 <div className="pt-1">
-                  <h3 className="mb-2 text-[15px] font-medium tracking-tight text-white sm:text-[16px]">
-                    {title}
-                  </h3>
-                  <p className="text-justify text-[13px] leading-relaxed text-white/70 sm:text-[14px]">
-                    {desc}
-                  </p>
+                  <h3 className="mb-2 text-[15px] font-medium tracking-tight text-white sm:text-[16px]">{title}</h3>
+                  <p className="text-justify text-[13px] leading-relaxed text-white/70 sm:text-[14px]">{desc}</p>
                 </div>
               </motion.li>
             ))}

@@ -44,7 +44,7 @@ const OCCASIONS: Occasion[] = [
     id:      "graduaciones",
     label:   "Graduaciones",
     icon:    "/images/occasions/graduation-caps.webp",
-    heading: "El primer gran logro merece quedarse para siempre.",
+    heading: "El primer gran logro que merece quedarse para siempre.",
     desc:    "Una forma de conmemorar el cierre de una etapa inolvidable. Algo pensado para celebrarse con orgullo — ideal para graduaciones, generaciones y logros que marcan el futuro.",
     tags:    ["Nombre y generación", "Institución educativa", "Grupos y generaciones", "Regalo grupal"],
   },
@@ -60,7 +60,7 @@ const OCCASIONS: Occasion[] = [
     id:      "temporadas",
     label:   "Temporadas",
     icon:    "/images/occasions/christmas-ornament.webp",
-    heading: "Navidad, San Valentín, Fiestas Patrias — cada fecha, una botella.",
+    heading: "Navidad, Valentine's Day, Fiestas Patrias — cada fecha, una botella.",
     desc:    "Un detalle creado para acompañar las celebraciones más especiales del año. Una forma especial de compartir y convertirse en tradición — ideal para temporadas y momentos memorables.",
     tags:    ["Navidad", "Fiestas Patrias", "Día de Muertos", "San Valentín"],
   },
@@ -173,7 +173,7 @@ export default function Occasions() {
               className="grid gap-10 lg:grid-cols-2 lg:gap-20"
             >
               <div>
-                <h3 className="mb-5 text-[clamp(1.3rem,3vw,2.2rem)] font-extralight leading-[1.12] tracking-tight text-neutral-900">
+                <h3 className="mb-5 text-[clamp(1.3rem,3vw,2.2rem)] font-extralight leading-[1.12] tracking-tight text-neutral-900 text-justify">
                   {current.heading}
                 </h3>
                 <p className="text-[13px] leading-relaxed text-neutral-700 sm:text-[14px] text-justify">

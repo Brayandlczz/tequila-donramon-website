@@ -7,7 +7,7 @@ import Image from "next/image";
 interface NavLink { label: string; href: string }
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Ocasiones",       href: "/#ocasiones"       },
+  { label: "Ocasiones",       href: "#ocasiones"       },
   { label: "Personalización", href: "#personalizacion"  },
   { label: "La experiencia",  href: "#experiencia"      },
   { label: "Complementos",  href: "#complementos"      },
@@ -79,7 +79,7 @@ export default function Navbar() {
             className="relative h-10 w-36 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--gold)]"
           >
             <Image
-              src="/images/logo.webp"
+              src="/images/branding/logo.webp"
               alt="Don Ramón Personalizado"
               fill
               sizes="144px"

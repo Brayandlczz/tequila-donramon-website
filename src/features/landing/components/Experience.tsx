@@ -25,10 +25,10 @@ const PILLARS: Pillar[] = [
 ];
 
 const AWARDS: Award[] = [
-  { distinction: "Double Gold",           body: "New York International Spirits Awards", year: "2021", logo:  "/images/awards/web-award-1.webp" },
-  { distinction: "Platinum",              body: "Las Vegas Global Spirit Awards",         year: "2020", logo: "/images/awards/web-award-2.webp" },
-  { distinction: "Gold",                  body: "Las Vegas Global Spirit Awards",         year: "2020", logo: "/images/awards/web-award-3.webp" },
-  { distinction: "Gold — Luxury Masters", body: "The Global Spirits Masters",             year: "2020", logo: "/images/awards/web-award-4.webp" },
+  { distinction: "Double Gold",           body: "New York International Spirits Awards", year: "2021", logo:  "/images/awards/award-01.webp" },
+  { distinction: "Platinum",              body: "Las Vegas Global Spirit Awards",         year: "2020", logo: "/images/awards/award-02.webp" },
+  { distinction: "Gold",                  body: "Las Vegas Global Spirit Awards",         year: "2020", logo: "/images/awards/award-03.webp" },
+  { distinction: "Gold — Luxury Masters", body: "The Global Spirits Masters",             year: "2020", logo: "/images/awards/award-04.webp" },
 ];
 
 const BADGES = ["Kosher Certification", "IFS Food", "100% Agave"] as const;

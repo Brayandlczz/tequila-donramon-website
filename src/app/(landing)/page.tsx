@@ -4,8 +4,8 @@ import {
   Occasions,
   HowItWorks,
   Experience,
-  Products,
-  Boxes,
+  Gallery,
+  Complements,
   Contact
 } from "@/features/landing";
 
@@ -17,8 +17,8 @@ export default function Home() {
       <Occasions />
       <HowItWorks />
       <Experience />
-      <Boxes />
-      <Products />
+      <Complements />
+      <Gallery />
       <Contact />
       <Footer />
     </main>

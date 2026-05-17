@@ -20,7 +20,7 @@ const PRODUCTS: Product[] = [
     heading:  "La sorpresa empieza desde el estuche.",
     desc:     "Estuches de madera con grabado de la marca Tequila Don Ramón, diseñados para convertir cada entrega en una experiencia elegante y memorable desde el primer vistazo.",
     features: ["Presentación elegante y sofisticada", "Grabado distintivo de la marca", "Acabado premium en madera", "Ideal para regalos"],
-    image:    "/images/products/boxes.webp",
+    image:    "/images/accesories/engraved-box.avif",
     imageAlt: "Caja de madera personalizada con grabado de Tequila Don Ramón",
   },
   {
@@ -29,7 +29,7 @@ const PRODUCTS: Product[] = [
     heading:  "El complemento ideal para compartir el momento.",
     desc:     "Porta-shots de madera con grabado de la marca Tequila Don Ramón, acompañado de tequileros con identidad de la marca, pensado para disfrutar cada brindis con una presentación única y auténtica.",
     features: ["Ideal para reuniones y celebraciones", "Incluye tequileros de regalo", "Diseño distintivo de la marca", "Dos modelos disponibles"],
-    image:    "/images/products/portashots.webp",
+    image:    "/images/accesories/shot-holder.avif",
     imageAlt: "Portashots de madera con grabado de Tequila Don Ramón",
   },
 ];

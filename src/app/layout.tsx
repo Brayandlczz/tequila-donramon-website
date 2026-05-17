@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Cinzel } from "next/font/google";
+
 import "./globals.css";
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
@@ -28,67 +29,59 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": "https://www.donramonpersonalizado.com/#organization",
+
       name: "Casa Don Ramón",
+
       url: "https://www.donramonpersonalizado.com",
+
       logo: {
         "@type": "ImageObject",
-        url: "https://www.donramonpersonalizado.com/logo.png",
+        url: "https://www.donramonpersonalizado.com/images/branding/logo.webp",
       },
+
       description:
-        "Casa Don Ramón es una de las casas tequileras más prestigiosas de México, especializada en botellas personalizadas grabadas artesanalmente.",
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.donramonpersonalizado.com/#website",
-      url: "https://www.donramonpersonalizado.com",
-      name: "Tequila Don Ramón Personalizado",
-      inLanguage: "es-MX",
-      publisher: {
-        "@id": "https://www.donramonpersonalizado.com/#organization",
-      },
-    },
-    {
-      "@type": "Service",
-      name: "Personalización de Botellas de Tequila Don Ramón",
-      provider: {
-        "@id": "https://www.donramonpersonalizado.com/#organization",
-      },
-      serviceType: "Personalización artesanal de botellas premium",
+        "Casa Don Ramón es una casa tequilera especializada en botellas premium personalizadas con grabado artesanal.",
+
       areaServed: {
         "@type": "Country",
         name: "México",
       },
-      description:
-        "Botellas premium personalizadas con grabado artesanal sobre vidrio utilizando técnica corte diamante.",
     },
+
     {
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "¿Qué se puede grabar en las botellas?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Nombres, fechas, mensajes, logotipos, diseños personalizados y elementos especiales para cada ocasión.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Para qué ocasiones son ideales?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Bodas, XV años, graduaciones, aniversarios, eventos corporativos, temporadas especiales y regalos premium.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Qué técnica utilizan?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Cada pieza es trabajada artesanalmente con técnica corte diamante sobre vidrio premium.",
-          },
-        },
-      ],
+      "@type": "WebSite",
+      "@id": "https://www.donramonpersonalizado.com/#website",
+
+      url: "https://www.donramonpersonalizado.com",
+
+      name: "Tequila Don Ramón Personalizado",
+
+      inLanguage: "es-MX",
+
+      publisher: {
+        "@id": "https://www.donramonpersonalizado.com/#organization",
+      },
+    },
+
+    {
+      "@type": "Service",
+
+      name: "Personalización de Botellas Don Ramón",
+
+      serviceType:
+        "Grabado artesanal y personalización premium de botellas de tequila",
+
+      provider: {
+        "@id": "https://www.donramonpersonalizado.com/#organization",
+      },
+
+      areaServed: {
+        "@type": "Country",
+        name: "México",
+      },
+
+      description:
+        "Botellas premium de Tequila Don Ramón personalizadas artesanalmente para bodas, eventos corporativos, aniversarios y ocasiones especiales.",
     },
   ],
 };
@@ -99,72 +92,37 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.donramonpersonalizado.com"),
 
   title: {
-    default:
-      "Tequila Don Ramón Personalizado — Botellas Premium Grabadas",
+    default: "Tequila Don Ramón Personalizado",
     template: "%s | Don Ramón Personalizado",
   },
 
   description:
-    "Botellas premium de Tequila Don Ramón personalizadas con grabado artesanal. Diseños exclusivos para bodas, XV años, graduaciones, aniversarios y eventos corporativos.",
-
-  keywords: [
-    "tequila personalizado",
-    "botellas grabadas",
-    "don ramón personalizado",
-    "tequila premium",
-    "grabado artesanal",
-    "botellas para eventos",
-    "regalos premium",
-  ],
-
-  authors: [
-    {
-      name: "Casa Don Ramón",
-      url: "https://www.donramonpersonalizado.com",
-    },
-  ],
-
-  creator: "Casa Don Ramón",
-  publisher: "Casa Don Ramón",
-
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+    "Botellas premium de Tequila Don Ramón personalizadas con grabado artesanal para bodas, XV años, aniversarios y eventos especiales.",
 
   alternates: {
     canonical: "https://www.donramonpersonalizado.com",
-    languages: {
-      "es-MX": "https://www.donramonpersonalizado.com",
-    },
   },
 
   openGraph: {
     type: "website",
+
     locale: "es_MX",
+
     url: "https://www.donramonpersonalizado.com",
+
     siteName: "Tequila Don Ramón Personalizado",
 
-    title:
-      "Tequila Don Ramón Personalizado — Botellas Premium Grabadas",
+    title: "Tequila Don Ramón Personalizado",
 
     description:
-      "Transforma una botella premium de Don Ramón en una pieza única con grabado artesanal sobre vidrio.",
+      "Botellas premium personalizadas con grabado artesanal sobre vidrio.",
 
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/branding/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Botella personalizada de Tequila Don Ramón grabada artesanalmente",
+        alt: "Botella personalizada de Tequila Don Ramón",
       },
     ],
   },
@@ -172,29 +130,21 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title:
-      "Tequila Don Ramón Personalizado — Botellas Premium Grabadas",
+    title: "Tequila Don Ramón Personalizado",
 
     description:
-      "Botellas premium personalizadas con grabado artesanal para ocasiones especiales.",
+      "Botellas premium personalizadas para ocasiones especiales.",
 
-    images: ["/og-image.jpg"],
+    images: ["/branding/og-image.jpg"],
   },
 
   icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        sizes: "any",
-      },
-    ],
+    icon: "/favicon.ico",
 
     apple: "/apple-touch-icon.png",
   },
 
   manifest: "/site.webmanifest",
-
-  category: "food & drink",
 };
 
 // ─── Viewport ─────────────────────────────────────────────────────────────────
@@ -221,7 +171,6 @@ export default function RootLayout({
         cinzel.variable,
         "h-full scroll-smooth antialiased",
       ].join(" ")}
-      suppressHydrationWarning
     >
       <head>
         <script
