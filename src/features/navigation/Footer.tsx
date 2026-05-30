@@ -96,7 +96,9 @@ function NavLink({ label, href, external, mobile = false }: FooterLink & { mobil
       className={[
         "group flex items-center gap-2 transition-colors duration-300",
         "hover:text-gold focus-visible:outline-none focus-visible:text-gold",
-        mobile ? "text-[11px] leading-snug text-neutral-700" : "text-[13px] text-neutral-700",
+        mobile
+          ? "min-h-11 py-1 text-[11px] leading-snug text-neutral-700"
+          : "text-[13px] text-neutral-700",
       ].join(" ")}
     >
       <span
@@ -140,7 +142,7 @@ export default function Footer() {
                 <h2 className="mb-3 text-center text-[8px] font-semibold uppercase tracking-[0.4em] text-gold">
                   {heading}
                 </h2>
-                <ul className="flex flex-col items-center gap-2" role="list">
+                <ul className="flex flex-col items-center gap-1" role="list">
                   {links.map((link) => (
                     <li key={link.href}>
                       <NavLink {...link} mobile />
@@ -189,7 +191,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="flex flex-col gap-2 pt-5 text-center sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[11px] text-neutral-600">
-            © {CURRENT_YEAR} Tequila Don Ramón - Personalizado | Franquicia MX 924872 | Todos los derechos reservados.
+            © {CURRENT_YEAR} Tequila Don Ramón - Personalizado | Franquicia MX 924872.
           </p>
           <p
             className="text-[10px] text-neutral-600 sm:whitespace-nowrap sm:text-right"

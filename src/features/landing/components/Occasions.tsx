@@ -280,11 +280,25 @@ export default function Occasions() {
                 </ul>
                 <a
                   href="#contacto"
-                  aria-label={`Cotizar botella personalizada para ${current.label}`}
-                  className="mx-auto mt-10 inline-flex w-fit items-center gap-3 border border-gold px-5 py-3 text-[11px] font-medium uppercase tracking-[0.28em] text-gold transition-all duration-300 hover:gap-5 hover:bg-gold hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold lg:mx-0"
-                >
-                  Cotizar para {current.label.toLowerCase()}
-                  <span aria-hidden="true">→</span>
+                    aria-label={`Cotizar botella personalizada para ${current.label}`}
+                    className="
+                    mx-auto mt-10 inline-flex min-h-12 w-fit items-center gap-3
+                    border border-neutral-800
+                    bg-white
+                    px-6 py-3
+                    text-[11px] font-medium uppercase tracking-[0.28em]
+                    text-neutral-800
+                    transition-all duration-300
+                    hover:-translate-y-0.5
+                    hover:bg-neutral-50
+                    hover:shadow-md
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-neutral-800
+                    focus-visible:ring-offset-2
+                    lg:mx-0"            >
+                    Cotizar para {current.label.toLowerCase()}
+                    <span aria-hidden="true">→</span>
                 </a>
               </div>
             </motion.div>
