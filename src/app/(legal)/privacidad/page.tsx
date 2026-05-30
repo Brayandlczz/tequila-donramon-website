@@ -1,248 +1,135 @@
-"use client";
+import type { Metadata } from "next";
+import LegalLayout from "@/shared/ui/LegalLayout";
 
-import { type FC } from "react";
-import { motion } from "framer-motion";
+// ─── SEO ──────────────────────────────────────────────────────────────────────
 
-const CURRENT_YEAR = new Date().getFullYear();
-const ease = [0.22, 1, 0.36, 1] as const;
+export const metadata: Metadata = {
+  title: "Política de Privacidad | Tequila Don Ramón Personalizado",
+  description:
+    "Política de privacidad de Tequila Don Ramón Personalizado. Conoce cómo tratamos los datos personales proporcionados a través de nuestro formulario de cotización y contacto.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://www.donramonpersonalizado.com/privacidad" },
+};
 
-interface SectionData {
-  number:  string;
-  title:   string;
-  content: React.ReactNode;
-}
+// ─── Content ──────────────────────────────────────────────────────────────────
 
-const SECTIONS: SectionData[] = [
+const sections = [
   {
-    number: "I",
-    title: "Responsable del tratamiento",
-    content: (
-      <p>
-        <strong className="font-medium text-neutral-200">Don Ramón Personalizado</strong>, franquicia MX 924872,
-        con domicilio en la República Mexicana, es responsable del uso y protección de sus datos personales.
-        Contáctenos en{" "}
-        <a href="mailto:contacto@donramonpersonalizado.com" className="text-[var(--gold)] underline underline-offset-2 transition-opacity hover:opacity-75">
-          contacto@donramonpersonalizado.com
-        </a>.
-      </p>
-    ),
+    id:    "responsable",
+    title: "1. Responsable del tratamiento",
+    content: [
+      "El responsable del tratamiento de los datos personales recabados a través de este sitio web es Casa Don Ramón, empresa dedicada a la producción, distribución y personalización de Tequila Don Ramón, con domicilio en la República Mexicana.",
+      "Para cualquier consulta relacionada con el tratamiento de sus datos personales, puede contactarnos a través del correo electrónico disponible en la sección de Contacto de este sitio.",
+    ],
   },
   {
-    number: "II",
-    title: "Datos personales recabados",
-    content: (
-      <>
-        <p>Recabamos los siguientes datos para la prestación de nuestros servicios:</p>
-        <ul className="mt-3 space-y-2">
-          {["Nombre completo", "Correo electrónico", "Número de teléfono (WhatsApp)", "Empresa u organización (opcional)", "Información del evento o proyecto"].map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span aria-hidden="true" className="mt-[9px] h-px w-4 shrink-0 bg-[var(--gold)]/50" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4">No recabamos datos sensibles conforme a la LFPDPPP.</p>
-      </>
-    ),
+    id:    "datos-recabados",
+    title: "2. Datos personales recabados",
+    content: [
+      "Este sitio web únicamente recaba datos personales cuando el usuario decide enviar voluntariamente una solicitud de cotización o contacto. Los datos solicitados son:",
+      "• Nombre completo\n• Correo electrónico\n• Empresa u organización (opcional)\n• Tipo de evento\n• Cantidad aproximada de piezas\n• Descripción del proyecto",
+      "El uso del formulario de contacto es completamente voluntario. Ningún dato personal es recabado de forma automática o pasiva como condición para acceder al sitio web.",
+    ],
   },
   {
-    number: "III",
-    title: "Finalidades del tratamiento",
-    content: (
-      <>
-        <p>Sus datos se utilizarán para finalidades <strong className="text-neutral-200">primarias</strong>:</p>
-        <ul className="mt-3 space-y-2">
-          {["Atender su solicitud de cotización o personalización", "Coordinar producción, pago y entrega", "Comunicarnos por los canales proporcionados"].map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span aria-hidden="true" className="mt-[9px] h-px w-4 shrink-0 bg-[var(--gold)]/50" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4">De manera <strong className="text-neutral-200">secundaria</strong>: envío de promociones y encuestas de satisfacción. Para oponerse, escriba con asunto <em>"Oposición a finalidades secundarias"</em>.</p>
-      </>
-    ),
+    id:    "finalidad",
+    title: "3. Finalidad del tratamiento",
+    content: [
+      "Los datos personales proporcionados a través del formulario serán utilizados exclusivamente para:",
+      "• Dar respuesta a la solicitud de cotización o consulta enviada.\n• Establecer comunicación para coordinar el proceso de personalización de botellas.\n• Enviar información relevante sobre nuestros productos y servicios, únicamente si el usuario lo solicita.",
+      "Los datos no serán utilizados para ninguna finalidad distinta a las aquí señaladas sin el consentimiento previo del titular.",
+    ],
   },
   {
-    number: "IV",
-    title: "Transferencia de datos",
-    content: <p>Sus datos no serán transferidos a terceros sin su consentimiento, salvo los casos del artículo 37 de la LFPDPPP: requerimientos de autoridades o cumplimiento de obligaciones legales.</p>,
+    id:    "transferencia",
+    title: "4. Transferencia de datos",
+    content: [
+      "Casa Don Ramón no vende, alquila, cede ni transfiere los datos personales de los usuarios a terceros, salvo obligación legal o consentimiento expreso del usuario.",
+      "En ningún caso los datos serán compartidos con fines publicitarios o de mercadotecnia con terceros ajenos a la operación del servicio.",
+    ],
   },
   {
-    number: "V",
-    title: "Derechos ARCO",
-    content: (
-      <>
-        <p>Tiene derecho a <strong className="text-neutral-200">Acceder, Rectificar, Cancelar u Oponerse</strong> al tratamiento de sus datos. Envíe su solicitud a{" "}
-          <a href="mailto:contacto@donramonpersonalizado.com" className="text-[var(--gold)] underline underline-offset-2 transition-opacity hover:opacity-75">
-            contacto@donramonpersonalizado.com
-          </a>{" "}indicando:
-        </p>
-        <ul className="mt-3 space-y-2">
-          {["Nombre completo e identificación oficial", "Derecho que desea ejercer", "Elementos que faciliten localizar sus datos"].map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span aria-hidden="true" className="mt-[9px] h-px w-4 shrink-0 bg-[var(--gold)]/50" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4">Responderemos en un máximo de <strong className="text-neutral-200">20 días hábiles</strong>.</p>
-      </>
-    ),
+    id:    "conservacion",
+    title: "5. Conservación de los datos",
+    content: [
+      "Los datos personales serán conservados únicamente durante el tiempo necesario para atender la solicitud y, en su caso, durante el período que dure la relación comercial con el usuario.",
+      "Una vez concluida la finalidad para la que fueron recabados, los datos serán eliminados de forma segura.",
+    ],
   },
   {
-    number: "VI",
-    title: "Cookies",
-    content: <p>Nuestro sitio puede usar cookies para mejorar la navegación y medir el rendimiento. Puede configurar su navegador para rechazarlas, aunque esto podría afectar algunas funcionalidades.</p>,
+    id:    "derechos",
+    title: "6. Derechos ARCO",
+    content: [
+      "De conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), el usuario tiene derecho a:",
+      "• Acceso: conocer qué datos personales se tienen sobre él y cómo son tratados.\n• Rectificación: solicitar la corrección de datos inexactos o incompletos.\n• Cancelación: solicitar la eliminación de sus datos cuando no sean necesarios.\n• Oposición: oponerse al tratamiento de sus datos para fines específicos.",
+      "Para ejercer cualquiera de estos derechos, envíe una solicitud a nuestro correo de contacto indicando su nombre completo y el derecho que desea ejercer. Responderemos en un plazo máximo de 20 días hábiles conforme a la ley.",
+    ],
   },
   {
-    number: "VII",
-    title: "Cambios al aviso",
-    content: <p>Nos reservamos el derecho de modificar este aviso. Cualquier cambio será publicado en este sitio. Le recomendamos revisarlo periódicamente.</p>,
+    id:    "cookies",
+    title: "7. Cookies y tecnologías de rastreo",
+    content: [
+      "Este sitio web puede utilizar cookies técnicas estrictamente necesarias para el funcionamiento del sitio. No se utilizan cookies de seguimiento, análisis de comportamiento o publicidad de terceros en la versión actual.",
+      "En caso de incorporar herramientas de analítica en el futuro, la presente Política será actualizada oportunamente e informaremos al usuario.",
+    ],
   },
   {
-    number: "VIII",
-    title: "Legislación aplicable",
-    content: <p>El presente aviso se rige por la <strong className="text-neutral-200">Ley Federal de Protección de Datos Personales en Posesión de los Particulares</strong> y su Reglamento, vigentes en los Estados Unidos Mexicanos.</p>,
+    id:    "seguridad",
+    title: "8. Medidas de seguridad",
+    content: [
+      "Casa Don Ramón aplica medidas técnicas y organizativas razonables para proteger los datos personales contra accesos no autorizados, pérdida, alteración o divulgación indebida.",
+      "Se recomienda al usuario no incluir información financiera sensible —como números de cuenta o contraseñas— en el formulario de contacto.",
+    ],
+  },
+  {
+    id:    "modificaciones",
+    title: "9. Modificaciones a la política",
+    content: [
+      "Casa Don Ramón se reserva el derecho de modificar la presente Política de Privacidad en cualquier momento, con el fin de adaptarla a cambios legislativos, jurisprudenciales o de negocio.",
+      "La versión actualizada estará siempre disponible en esta misma página. Se recomienda revisarla periódicamente.",
+    ],
+  },
+  {
+    id:    "legislacion",
+    title: "10. Legislación aplicable",
+    content: [
+      "La presente Política se rige por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), su Reglamento y los Lineamientos del Aviso de Privacidad vigentes en los Estados Unidos Mexicanos.",
+      "Para la resolución de cualquier controversia, las partes se someten a la jurisdicción de los tribunales competentes de la Ciudad de México.",
+    ],
   },
 ];
 
-// ─── Section ──────────────────────────────────────────────────────────────────
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
-const Section: FC<{ data: SectionData; index: number }> = ({ data, index }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-40px" }}
-    transition={{ duration: 0.7, delay: index * 0.05, ease }}
-    className={[
-      "group grid gap-6 py-10 lg:grid-cols-[200px_1fr] lg:gap-16",
-      index !== 0 ? "border-t border-white/[0.06]" : "",
-    ].join(" ")}
-  >
-    {/* Label */}
-    <div className="flex flex-row items-baseline gap-4 lg:flex-col lg:gap-3">
-      <motion.span
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: index * 0.05 + 0.15 }}
-        className="font-mono text-[11px] tracking-[0.35em] text-[var(--gold)]/40 transition-colors duration-300 group-hover:text-[var(--gold)]/70"
-      >
-        {data.number}
-      </motion.span>
-      <h2 className="text-[12px] font-semibold uppercase tracking-[0.25em] text-white/60 transition-colors duration-300 group-hover:text-white/90 lg:leading-snug">
-        {data.title}
-      </h2>
-    </div>
-
-    {/* Content */}
-    <div className="space-y-3 text-[13px] leading-relaxed text-white/45 sm:text-[14px]">
-      {data.content}
-    </div>
-  </motion.div>
-);
-
-// ─── Component ────────────────────────────────────────────────────────────────
-
-export default function PrivacyPolicy() {
+export default function PrivacidadPage() {
   return (
-    <main
-      id="privacidad"
-      aria-labelledby="privacy-heading"
-      className="w-full overflow-hidden bg-[var(--surface-0)]"
-    >
-      {/* Hero */}
-      <div className="relative overflow-hidden border-b border-white/[0.06]">
-
-        {/* Decorative gradients */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--gold)]/[0.06] via-transparent to-transparent" />
-        <div aria-hidden="true" className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/20 to-transparent" />
-
-        {/* Animated gold orb */}
-        <motion.div
-          aria-hidden="true"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease }}
-          className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[var(--gold)]/[0.04] blur-3xl"
-        />
-
-        <div className="mx-auto w-full max-w-7xl px-5 py-20 sm:px-10 sm:py-28 lg:px-16">
-          <div className="lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
-            <div className="hidden lg:block" />
-            <div>
-              <motion.div
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease }}
-                className="mb-6 flex items-center gap-3"
-              >
-                <div aria-hidden="true" className="h-px w-8 shrink-0 bg-[var(--gold)]" />
-                <p className="text-[10px] font-medium uppercase tracking-[0.5em] text-[var(--gold)]">Legal</p>
-              </motion.div>
-
-              <div className="overflow-hidden">
-                <motion.h1
-                  id="privacy-heading"
-                  initial={{ opacity: 0, y: 32 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.9, delay: 0.2, ease }}
-                  className="text-[clamp(2rem,6vw,4rem)] font-extralight leading-[1.05] tracking-tight text-white"
-                >
-                  Aviso de
-                  <br />
-                  <em className="not-italic text-[var(--gold)]">Privacidad</em>
-                </motion.h1>
-              </div>
-
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.45 }}
-                className="mt-5 text-[12px] tracking-wide text-white/25"
-              >
-                Última actualización: {CURRENT_YEAR} · Franquicia MX 924872
-              </motion.p>
-
-              {/* Animated gold divider */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.9, delay: 0.55, ease }}
-                aria-hidden="true"
-                className="mt-8 h-px w-16 origin-left bg-[var(--gold)]/40"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Contenido */}
-      <div className="mx-auto w-full max-w-7xl px-5 pb-20 pt-2 sm:px-10 lg:px-16">
-        {SECTIONS.map((s, i) => (
-          <Section key={s.number} data={s} index={i} />
-        ))}
-
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col gap-3 border-t border-white/[0.06] pt-8 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <p className="text-[11px] text-white/20">
-            © {CURRENT_YEAR} Don Ramón Personalizado · Todos los derechos reservados.
-          </p>
-          <a
-            href="/"
-            className="text-[11px] text-[var(--gold)]/50 transition-colors duration-200 hover:text-[var(--gold)] focus-visible:outline-none focus-visible:text-[var(--gold)]"
-          >
-            ← Volver al inicio
-          </a>
-        </motion.div>
-      </div>
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context":    "https://schema.org",
+            "@type":       "WebPage",
+            name:          "Política de Privacidad",
+            url:           "https://www.donramonpersonalizado.com/privacidad",
+            author:        { "@type": "Organization", name: "Casa Don Ramón" },
+            dateModified:  "2025-05-17",
+          }),
+        }}
+      />
+      <LegalLayout
+        badge="Documento legal"
+        title="Política de Privacidad"
+        subtitle="Casa Don Ramón se compromete a proteger la privacidad de sus usuarios y a tratar sus datos personales conforme a la legislación mexicana vigente."
+        lastUpdated="17 de mayo de 2025"
+        dateISO="2025-05-17"
+        meta={[
+          { label: "Marco legal",     value: "LFPDPPP · México"               },
+          { label: "Datos recabados", value: "Nombre · Email · Proyecto"      },
+        ]}
+        sections={sections}
+        footerLink={{ href: "/terminos", label: "Términos y Condiciones" }}
+      />
+    </>
   );
 }
