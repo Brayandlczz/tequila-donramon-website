@@ -4,30 +4,44 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-interface NavLink { label: string; href: string }
+interface NavLink {
+  label: string;
+  href: string;
+}
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Ocasiones",       href: "#ocasiones"       },
-  { label: "Personalización", href: "#personalizacion"  },
-  { label: "La experiencia",  href: "#experiencia"      },
-  { label: "Complementos",  href: "#complementos"      },
-  { label: "Galería",        href: "#galeria"         },
-  { label: "Contacto",        href: "#contacto"         },
+  { label: "Ocasiones", href: "#ocasiones" },
+  { label: "Personalización", href: "#personalizacion" },
+  { label: "La experiencia", href: "#experiencia" },
+  { label: "Galería", href: "#galeria" },
 ];
 
 const SCROLL_THRESHOLD = 60;
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const menuVariants = {
-  closed: { clipPath: "inset(0 0 100% 0)", opacity: 0, transition: { duration: 0.35, ease } },
-  open:   { clipPath: "inset(0 0 0% 0)",   opacity: 1, transition: { duration: 0.4,  ease } },
+  closed: {
+    clipPath: "inset(0 0 100% 0)",
+    opacity: 0,
+    transition: { duration: 0.35, ease },
+  },
+  open: {
+    clipPath: "inset(0 0 0% 0)",
+    opacity: 1,
+    transition: { duration: 0.4, ease },
+  },
 };
 
 const itemVariants = {
   closed: { opacity: 0, x: -12 },
-  open:   (i: number) => ({
-    opacity: 1, x: 0,
-    transition: { duration: 0.35, delay: 0.08 + i * 0.06, ease },
+  open: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.35,
+      delay: 0.08 + i * 0.06,
+      ease,
+    },
   }),
 };
 
@@ -44,7 +58,9 @@ export default function Navbar() {
 
   useEffect(() => {
     if (!menuOpen) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [menuOpen]);
@@ -54,7 +70,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const closeMenu  = useCallback(() => setMenuOpen(false), []);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
   const toggleMenu = useCallback(() => setMenuOpen((v) => !v), []);
 
   return (
@@ -64,42 +80,46 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease }}
-        className={[
-          "fixed inset-x-0 top-0 z-50 w-full transition-all duration-500",
-          scrolled
-            ? "border-b border-white/[0.06] bg-[var(--surface-0)]/90 backdrop-blur-md py-4"
-            : "bg-transparent py-6",
-        ].join(" ")}
+        className="fixed inset-x-0 top-0 z-50 w-full px-4 pt-4 sm:px-8 lg:px-16"
       >
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-8 lg:px-16">
-
+        <div
+          className={[
+            "mx-auto flex w-full max-w-7xl items-center justify-between transition-all duration-500",
+            scrolled
+              ? "rounded-full border border-white/10 bg-black/60 px-5 py-3 shadow-[0_18px_60px_rgba(0,0,0,.25)] backdrop-blur-xl sm:px-6"
+              : "bg-transparent px-0 py-2",
+          ].join(" ")}
+        >
           <a
             href="/"
             aria-label="Don Ramón Personalizado — Ir al inicio"
-            className="relative h-10 w-36 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--gold)]"
+            className="relative h-8 w-30 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c92532] sm:h-9 sm:w-32"
           >
             <Image
               src="/images/branding/logo.webp"
               alt="Don Ramón Personalizado"
               fill
-              sizes="144px"
+              sizes="128px"
               className="object-contain object-left"
               priority
             />
           </a>
 
-          <nav aria-label="Navegación principal" className="hidden items-center gap-8 md:flex lg:gap-10">
+          <nav
+            aria-label="Navegación principal"
+            className="hidden items-center gap-10 md:flex lg:gap-12"
+          >
             {NAV_LINKS.map(({ label, href }) => (
               <a
                 key={href}
                 href={href}
                 className="
-                  relative text-[10px] font-medium tracking-[0.3em] uppercase
-                  text-white/70 transition-colors duration-300 hover:text-white
-                  after:absolute after:-bottom-0.5 after:left-0 after:h-px
-                  after:w-0 after:bg-[var(--gold)] after:transition-all after:duration-300
+                  relative text-[10px] font-medium uppercase tracking-[0.32em]
+                  text-white/82 transition-colors duration-300 hover:text-white
+                  after:absolute after:-bottom-1 after:left-0 after:h-px
+                  after:w-0 after:bg-[#c92532] after:transition-all after:duration-300
                   hover:after:w-full
-                  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--gold)]
+                  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c92532]
                 "
               >
                 {label}
@@ -111,15 +131,13 @@ export default function Navbar() {
             href="#contacto"
             aria-label="Cotizar botella personalizada Don Ramón"
             className="
-              hidden md:inline-flex items-center gap-2
-              border border-[var(--gold)]/70 px-5 py-2.5
-              text-[10px] font-semibold tracking-[0.3em] uppercase
-              text-[var(--gold)] transition-all duration-300
-              hover:bg-[var(--gold)] hover:text-black hover:border-[var(--gold)]
-              focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--gold)]
+              hidden items-center gap-2 md:inline-flex
+              text-[10px] font-medium uppercase tracking-[0.32em]
+              text-white/90 transition-colors duration-300 hover:text-[#c92532]
+              focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c92532]
             "
           >
-            Cotizar
+            Cotizar <span aria-hidden="true">→</span>
           </a>
 
           <button
@@ -128,17 +146,17 @@ export default function Navbar() {
             aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
-            className="relative flex h-8 w-8 flex-col items-center justify-center gap-[5px] md:hidden focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--gold)]"
+            className="relative flex h-8 w-8 flex-col items-center justify-center gap-1.25 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c92532] md:hidden"
           >
             {[
-              menuOpen ? "translate-y-[5px] rotate-45"   : "",
-              menuOpen ? "opacity-0 scale-x-0"            : "",
-              menuOpen ? "-translate-y-[5px] -rotate-45"  : "",
+              menuOpen ? "translate-y-[5px] rotate-45" : "",
+              menuOpen ? "opacity-0 scale-x-0" : "",
+              menuOpen ? "-translate-y-[5px] -rotate-45" : "",
             ].map((extra, i) => (
               <span
                 key={i}
                 aria-hidden="true"
-                className={`block h-px w-6 bg-white origin-center transition-all duration-300 ${extra}`}
+                className={`block h-px w-6 origin-center bg-white transition-all duration-300 ${extra}`}
               />
             ))}
           </button>
@@ -156,25 +174,45 @@ export default function Navbar() {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto bg-[var(--surface-0)] px-5 pb-10 pt-28 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto
+                       bg-black/75 px-6 pb-10 pt-28 backdrop-blur-2xl
+                       md:hidden"
           >
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-6 top-24 h-px bg-white/10"
+            />
+
             <nav aria-label="Navegación móvil">
               <ul className="flex flex-col gap-1" role="list">
                 {NAV_LINKS.map(({ label, href }, i) => (
-                  <motion.li key={href} custom={i} variants={itemVariants} initial="closed" animate="open" exit="closed">
+                  <motion.li
+                    key={href}
+                    custom={i}
+                    variants={itemVariants}
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                  >
                     <a
                       href={href}
                       onClick={closeMenu}
                       className="
-                        flex items-center justify-between
+                        group flex items-center justify-between
                         border-b border-white/[0.07] py-5
-                        text-[22px] font-extralight tracking-tight text-white
-                        transition-colors duration-300 hover:text-[var(--gold)]
-                        focus-visible:outline-none focus-visible:text-[var(--gold)]
+                        text-[22px] font-extralight tracking-tight text-white/90
+                        transition-colors duration-300 hover:text-white
+                        focus-visible:outline-none focus-visible:text-white
                       "
                     >
                       {label}
-                      <span aria-hidden="true" className="text-base text-[var(--gold)]/40">→</span>
+                      <span
+                        aria-hidden="true"
+                        className="text-sm text-white/20 transition-all duration-300
+                                   group-hover:translate-x-1 group-hover:text-white/60"
+                      >
+                        →
+                      </span>
                     </a>
                   </motion.li>
                 ))}
@@ -189,22 +227,30 @@ export default function Navbar() {
               exit="closed"
               className="flex flex-col gap-5"
             >
+              <div
+                aria-hidden="true"
+                className="flex items-center gap-3 pb-1"
+              >
+                <div className="h-px flex-1 bg-white/10" />
+                <p className="text-[8px] uppercase tracking-[0.45em] text-white/70">
+                  Franquicia | MX 924872
+                </p>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+
               <a
                 href="#contacto"
                 onClick={closeMenu}
                 aria-label="Cotizar botella personalizada Don Ramón"
                 className="
-                  w-full bg-[var(--gold)] py-4 text-center
-                  text-[11px] font-semibold tracking-[0.35em] uppercase text-black
-                  transition-colors duration-300 hover:bg-[var(--gold-light)]
-                  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--gold)]
+                  w-full bg-[#c92532] py-4 text-center
+                  text-[11px] font-semibold uppercase tracking-[0.35em] text-white
+                  transition-colors duration-300 hover:bg-[#a91f29]
+                  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c92532]
                 "
               >
-                Cotizar ahora
+                Cotizar
               </a>
-              <p className="text-center text-[9px] tracking-[0.4em] uppercase text-white/25">
-                donramonpersonalizado.com
-              </p>
             </motion.div>
           </motion.div>
         )}

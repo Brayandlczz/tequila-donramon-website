@@ -36,6 +36,7 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-cinzel: var(--font-cinzel);
 }
 
 /* ─── Base ────────────────────────────────────────────────────────────────── */
@@ -70,12 +71,6 @@ body {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
-
-/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
-::-webkit-scrollbar        { width: 4px; }
-::-webkit-scrollbar-track  { background: var(--surface-0); }
-::-webkit-scrollbar-thumb  { background: var(--gold-dark); }
-::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
 /* ─── Keyframes ──────────────────────────────────────────────────────────── */
 @keyframes cursor-blink {

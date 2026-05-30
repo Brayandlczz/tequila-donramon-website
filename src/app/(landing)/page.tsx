@@ -3,9 +3,9 @@ import {
   Hero,
   Occasions,
   HowItWorks,
-  Experience,
-  Gallery,
-  Complements,
+  Accesories,
+  Testimonials,
+  FAQSection,
   Contact
 } from "@/features/landing";
 
@@ -16,9 +16,9 @@ export default function Home() {
       <Hero />
       <Occasions />
       <HowItWorks />
-      <Experience />
-      <Complements />
-      <Gallery />
+      <Accesories />
+      <Testimonials />
+      <FAQSection />
       <Contact />
       <Footer />
     </main>
