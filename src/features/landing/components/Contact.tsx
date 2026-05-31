@@ -189,7 +189,7 @@ export default function Contact() {
       aria-labelledby="contact-heading"
       itemScope
       itemType="https://schema.org/ContactPage"
-      className="w-full bg-white px-6 py-20 sm:px-10 sm:py-28"
+      className="w-full bg-white px-6 py-10 sm:px-10 sm:py-28 scroll-mt-16"
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[380px_1fr] lg:gap-24">
 

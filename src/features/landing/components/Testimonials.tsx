@@ -10,93 +10,122 @@ interface Review {
 }
 
 const REVIEWS: Review[] = [
+  // BOTELLA
   {
     quote:
-      "Pedimos 80 piezas para un lanzamiento corporativo. Cada uno de nuestros clientes quedó absolutamente encantado.",
-    author: "María de Lourdes",
-    event: "Corporativo · CDMX",
-  },
-  {
-    quote:
-      "El grabado es precioso. Le regalé una a mi papá con su nombre y la fecha; lloró de la emoción.",
+      "La botella personalizada fue un regalo para alguien muy especial. El grabado simplemente quedó hermoso.",
     author: "Alejandro Lara",
     event: "Aniversario · Monterrey",
   },
+
+  // CAJA
   {
     quote:
-      "Todo fue rapidísimo y el resultado superó completamente nuestras expectativas. Lo recomiendo ampliamente.",
+      "Las cajas personalizadas elevaron por completo la presentación. Me enamoré desde el primer vistazo.",
     author: "Arely Ortiz",
     event: "XV Años · Querétaro",
   },
+
+  // TRAJINERA
   {
     quote:
-      "El detalle perfecto para cerrar nuestro evento corporativo. Todos se fueron muy felices.",
+      "La trajinera fue el detalle que todos recordaron. Tenía ese toque mexicano, alegre y muy bien logrado.",
     author: "Rodrigo Vega",
-    event: "Corporativo · Monterrey",
+    event: "Celebración · Xochimilco",
   },
+
+  // BOTELLA
   {
     quote:
-      "Desde el primer contacto ellos nos ayudaron con el diseño. El resultado fue exactamente lo que imaginábamos.",
-    author: "Fernanda Cruz",
-    event: "Aniversario · Puebla",
-  },
-  {
-    quote:
-      "La calidad de la botella y del grabado es impresionante. Se siente como una pieza de colección.",
-    author: "Mauricio Herrera",
-    event: "Regalo Personal · CDMX",
-  },
-  {
-    quote:
-      "Elegimos Don Ramón para nuestra boda y terminó siendo uno de los recuerdos favoritos de nuestros invitados.",
-    author: "Daniela Flores",
-    event: "Boda · San Luis Potosí",
-  },
-  {
-    quote:
-      "Mandamos grabar el nombre de mi abuelo y quedó espectacular. Toda la familia quedó emocionada.",
+      "Mandamos a grabar el nombre de mi abuelo y quedó precioso. Toda la familia se conmovió al verlo.",
     author: "Valeria Sánchez",
     event: "Cumpleaños · Mérida",
   },
+
+  // EXPERIENCIA
   {
     quote:
-      "Nos sorprendió la rapidez de entrega. Llegó perfectamente empacado y listo para regalar.",
-    author: "Luis Cárdenas",
-    event: "Regalo Personal · León",
-  },
-  {
-    quote:
-      "Las cajas personalizadas hicieron que todo se viera mucho más elegante. Valió totalmente la pena.",
-    author: "Patricia Gómez",
-    event: "Boda · Querétaro",
-  },
-  {
-    quote:
-      "La botella fue el centro de atención durante toda la celebración. Todos querían saber dónde la habíamos hecho.",
-    author: "Andrea Navarro",
-    event: "XV Años · Aguascalientes",
-  },
-  {
-    quote:
-      "El acabado luce increíble en persona. Las fotografías no le hacen justicia al nivel real de detalle.",
-    author: "Ricardo Torres",
-    event: "Aniversario · Guadalajara",
-  },
-  {
-    quote:
-      "La comunicación por WhatsApp fue muy sencilla y el diseño quedó aprobado en cuestión de horas.",
+      "Por WhatsApp la atención fue muy rápida. Revisamos el diseño, lo aprobaron y llegó tal como esperábamos.",
     author: "Eduardo Castillo",
     event: "Cumpleaños · Puebla",
   },
+
+  // CAJA
   {
     quote:
-      "Queríamos algo auténticamente mexicano y elegante. Superó nuestras expectativas por completo.",
+      "Las cajas personalizadas hicieron que cada botella se sintiera aún más especial, elegante y memorable.",
+    author: "Patricia Gómez",
+    event: "Boda · Querétaro",
+  },
+
+  // BOTELLA
+  {
+    quote:
+      "La botella y su caja se sentían como una pieza de colección. Fue un regalo que emocionó muchísimo.",
+    author: "Mauricio Herrera",
+    event: "Regalo Personal · CDMX",
+  },
+
+  // TRAJINERA
+  {
+    quote:
+      "La trajinera personalizada fue el centro de la mesa. Todos querían verla de cerca y tomarle fotos.",
+    author: "Andrea Navarro",
+    event: "XV Años · Aguascalientes",
+  },
+
+  // BOTELLA
+  {
+    quote:
+      "Elegimos Don Ramón para nuestra boda y las botellas terminaron siendo de los recuerdos favoritos.",
+    author: "Daniela Flores",
+    event: "Boda · San Luis Potosí",
+  },
+
+  // CORPORATIVO
+  {
+    quote:
+      "Pedimos 80 botellas para un evento corporativo y cada detalle se sintió premium, elegante y muy bien cuidado.",
+    author: "María de Lourdes",
+    event: "Corporativo · CDMX",
+  },
+
+  // CAJA
+  {
+    quote:
+      "Llegó perfectamente empacado y listo para regalar. La presentación cuidada hizo toda la diferencia.",
+    author: "Luis Cárdenas",
+    event: "Regalo Personal · León",
+  },
+
+  // BOTELLA
+  {
+    quote:
+      "Nos ayudaron a aterrizar el diseño desde el inicio. El resultado quedó justo como lo imaginábamos.",
+    author: "Fernanda Cruz",
+    event: "Aniversario · Puebla",
+  },
+
+  // TRAJINERA
+  {
+    quote:
+      "Queríamos algo mexicano, elegante y diferente. La trajinera con tequila superó nuestras expectativas.",
     author: "Mariana Lozano",
     event: "Boda · Oaxaca",
   },
+
+  // BOTELLA
   {
     quote:
-      "Cada uno de nuestros invitados se llevó una botella personalizada y todavía siguen hablándonos de ellas meses después.",
+      "El acabado luce increíble en persona. Se nota el cuidado en el grabado, la caja y cada detalle.",
+    author: "Ricardo Torres",
+    event: "Aniversario · Guadalajara",
+  },
+
+  // CORPORATIVO
+  {
+    quote:
+      "Nuestros invitados se llevaron botellas con caja personalizada y todavía nos preguntan dónde las hicimos.",
     author: "Héctor Silva",
     event: "Evento Corporativo · Cancún",
   },

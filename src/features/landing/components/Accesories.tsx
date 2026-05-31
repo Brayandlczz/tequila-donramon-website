@@ -134,11 +134,11 @@ function AccessoryCard({ item, index }: AccessoryCardProps) {
 export default function Accesories() {
   return (
     <section
-      id="experience"
-      aria-labelledby="experience-heading"
+      id="complements"
+      aria-labelledby="complements-heading"
       itemScope
       itemType="https://schema.org/ItemList"
-      className="w-full overflow-hidden bg-white py-20 sm:py-28"
+      className="w-full overflow-hidden bg-white pt-24 py-24 sm:py-28"
     >
       <meta itemProp="name" content="Accesorios Don Ramón" />
 
@@ -194,7 +194,7 @@ export default function Accesories() {
           </div>
 
           <a
-            href="#contacto"
+            href="#contact"
             className="group inline-flex shrink-0 items-center gap-3 bg-neutral-900 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.35em] text-white transition-all duration-300 hover:bg-[#C9A84C] hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 rounded-full"
           >
             ¡Quiero el set completo!
