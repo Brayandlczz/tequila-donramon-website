@@ -170,9 +170,9 @@ export default function FAQSection() {
       // Schema.org: FAQPage structured data
       itemScope
       itemType="https://schema.org/FAQPage"
-      className="bg-white px-6 py-20 sm:px-10 sm:py-28"
+      className="bg-white px-6 py-10 sm:px-10 sm:py-0 min-h-svh flex items-center scroll-mt-16"
     >
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-10 lg:grid-cols-[360px_1fr] lg:gap-20">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[360px_1fr] lg:gap-20">
 
         {/* ── LEFT ── */}
         <div className="flex flex-col items-center lg:items-start lg:sticky lg:top-8">

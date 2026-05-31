@@ -10,10 +10,10 @@ interface NavLink {
 }
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Ocasiones", href: "#ocasiones" },
-  { label: "Personalización", href: "#personalizacion" },
-  { label: "La experiencia", href: "#experiencia" },
-  { label: "Galería", href: "#galeria" },
+  { label: "Ocasiones", href: "#ocassions" },
+  { label: "Personalización", href: "#personalization" },
+  { label: "Complementos", href: "#complements" },
+  { label: "Preguntas frecuentes", href: "#faq" },
 ];
 
 const SCROLL_THRESHOLD = 60;
@@ -128,18 +128,18 @@ export default function Navbar() {
           </nav>
 
           <a
-            href="#contacto"
+          href="#contact"
             aria-label="Cotizar botella personalizada Don Ramón"
             className="
               hidden items-center gap-2 md:inline-flex
-              text-[10px] font-medium uppercase tracking-[0.32em]
-              text-white/90 transition-colors duration-300 hover:text-[#c92532]
+              border border-white/50 rounded-full px-4 py-1.5
+              text-[10px] font-bold uppercase tracking-[0.32em]
+              text-white/90 transition-all duration-300 hover:border-white hover:text-white
               focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c92532]
             "
           >
-            Cotizar <span aria-hidden="true">→</span>
+            Contacto
           </a>
-
           <button
             type="button"
             onClick={toggleMenu}
@@ -239,7 +239,7 @@ export default function Navbar() {
               </div>
 
               <a
-                href="#contacto"
+                href="#contact"
                 onClick={closeMenu}
                 aria-label="Cotizar botella personalizada Don Ramón"
                 className="

@@ -127,7 +127,7 @@ export default function Occasions() {
     <section
       id="ocassions"
       aria-labelledby="occ-heading"
-      className="flex min-h-svh flex-col items-center justify-center bg-white py-24 sm:py-32"
+      className="flex min-h-svh flex-col items-center justify-center bg-white py-24 sm:py-28"
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 lg:px-16">
 
@@ -156,7 +156,7 @@ export default function Occasions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.85, delay: 0.1, ease: EASE }}
-              className="text-center text-[clamp(1.9rem,4.4vw,3.6rem)] font-extralight leading-[1.04] tracking-tight text-neutral-900 lg:text-left"
+              className="text-center text-[clamp(1.9rem,4.4vw,3.6rem)] font-bold leading-[1.04] tracking-tight text-neutral-900 lg:text-left"
             >
               Cada ocasión merece
               <br />
@@ -171,7 +171,7 @@ export default function Occasions() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="hidden max-w-sm text-[14px] leading-[1.8] text-neutral-600 lg:block lg:text-right"
+            className="hidden max-w-sm text-[14px] leading-[1.8] text-neutral-700 lg:block lg:text-right"
           >
             Desde un bautizo, cumpleaños o hasta un lanzamiento corporativo —
             personalizamos cada botella para que cuente la historia correcta.
@@ -279,7 +279,7 @@ export default function Occasions() {
                   ))}
                 </ul>
                 <a
-                  href="#contacto"
+                  href="#contact"
                     aria-label={`Cotizar botella personalizada para ${current.label}`}
                     className="
                     mx-auto mt-10 inline-flex min-h-12 w-fit items-center gap-3

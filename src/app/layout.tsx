@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Cinzel } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 
@@ -155,6 +156,7 @@ export default function RootLayout({
 
       <body className="min-h-full bg-[#0a0804] text-white flex flex-col font-sans">
         {children}
+        <Analytics />
       </body>
     </html>
   );
