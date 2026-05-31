@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
 interface Section {
   id:      string;
   title:   string;
@@ -23,8 +21,6 @@ interface LegalLayoutProps {
   footerLink:  { href: string; label: string };
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export default function LegalLayout({
   badge, title, subtitle, lastUpdated, dateISO, meta, sections, footerLink,
 }: LegalLayoutProps) {
@@ -35,7 +31,7 @@ export default function LegalLayout({
       <header className="flex h-16 w-full shrink-0 items-center justify-between border-b border-neutral-200 px-5 sm:px-10 lg:px-16">
         <Link
           href="/"
-          aria-label="Don Ramón Personalizado — Volver al inicio"
+          aria-label="Tequila Don Ramón Personalizado — Volver al inicio"
           className="group flex items-center"
         >
           <Image
@@ -43,7 +39,7 @@ export default function LegalLayout({
             alt="Tequila Don Ramón Personalizado"
             width={120}
             height={40}
-            className="h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-70 brightness-0"
+            className="h-9 w-auto object-contain brightness-0 transition-opacity duration-200 group-hover:opacity-70"
             priority
           />
         </Link>
@@ -61,7 +57,6 @@ export default function LegalLayout({
         {/* ── Sidebar desktop ───────────────────────────────────────────── */}
         <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col overflow-y-auto border-r border-neutral-200 px-8 py-12 xl:w-72 lg:flex">
 
-          {/* Documento info */}
           <div className="mb-10 space-y-5">
             <p className="text-[9px] font-medium tracking-[0.4em] uppercase text-neutral-400">
               {badge}
@@ -89,7 +84,6 @@ export default function LegalLayout({
             </div>
           </div>
 
-          {/* Índice */}
           <nav aria-label="Índice de secciones">
             <p className="mb-4 text-[8px] font-medium tracking-[0.4em] uppercase text-neutral-400">
               Índice
@@ -108,7 +102,6 @@ export default function LegalLayout({
             </ol>
           </nav>
 
-          {/* Footer sidebar */}
           <div className="mt-auto space-y-2 border-t border-neutral-200 pt-8">
             <Link
               href={footerLink.href}
@@ -117,7 +110,7 @@ export default function LegalLayout({
               {footerLink.label} →
             </Link>
             <p className="text-[8px] tracking-wide text-neutral-400">
-              © {new Date().getFullYear()} Casa Don Ramón. Todos los derechos reservados.
+              © {new Date().getFullYear()} Tequila Don Ramón Personalizado · MX 924872
             </p>
           </div>
         </aside>
@@ -125,25 +118,23 @@ export default function LegalLayout({
         {/* ── Main content ──────────────────────────────────────────────── */}
         <main className="min-w-0 flex-1 px-5 py-14 sm:px-10 sm:py-16 xl:px-20">
 
-          {/* Hero del documento */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="mb-14 border-b border-neutral-200 pb-12"
           >
-            <p className="mb-4 text-[10px] font-medium tracking-[0.45em] uppercase text-neutral-400">
+            <p className="mb-4 text-[10px] font-medium tracking-[0.45em] uppercase text-neutral-400 text-center lg:text-left">
               {badge}
             </p>
-            <h1 className="mb-5 text-[clamp(2.4rem,5vw,4.5rem)] font-extralight leading-[1.02] tracking-tight text-neutral-900">
+            <h1 className="mb-5 text-[clamp(2.4rem,5vw,4.5rem)] font-extralight leading-[1.02] tracking-tight text-neutral-900 text-center lg:text-left">
               {title}
             </h1>
-            <p className="mb-8 max-w-xl text-[13px] leading-relaxed text-neutral-500">
+            <p className="mb-8 max-w-xl text-[13px] leading-relaxed text-neutral-500 text-center lg:text-left">
               {subtitle}
             </p>
 
-            {/* Meta pills */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               <div className="border border-neutral-200 bg-neutral-50 px-4 py-2">
                 <span className="mb-0.5 block text-[8px] font-medium tracking-widest uppercase text-gold-dark">
                   Actualización
@@ -165,7 +156,7 @@ export default function LegalLayout({
 
           {/* Índice mobile */}
           <nav aria-label="Índice" className="mb-12 border border-neutral-200 bg-neutral-50 p-5 lg:hidden">
-            <p className="mb-4 text-[9px] font-medium tracking-[0.4em] uppercase text-neutral-400">
+            <p className="mb-4 text-[9px] font-medium tracking-[0.4em] uppercase text-neutral-400 text-center">
               Índice
             </p>
             <ol className="space-y-2.5">
@@ -173,7 +164,7 @@ export default function LegalLayout({
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    className="text-[11px] tracking-wide text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+                    className="block text-center text-[11px] tracking-wide text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
                   >
                     {s.title}
                   </a>
@@ -196,7 +187,7 @@ export default function LegalLayout({
               >
                 <h2
                   id={`heading-${s.id}`}
-                  className="mb-5 text-[clamp(1.1rem,2.5vw,1.5rem)] font-semibold leading-snug tracking-tight text-neutral-800"
+                  className="mb-5 text-[clamp(1.1rem,2.5vw,1.5rem)] font-semibold leading-snug tracking-tight text-neutral-800 text-center lg:text-left"
                 >
                   {s.title}
                 </h2>
@@ -204,7 +195,7 @@ export default function LegalLayout({
                   {s.content.map((p, j) => (
                     <p
                       key={j}
-                      className="whitespace-pre-line text-justify text-[13px] leading-[1.9] text-neutral-600 sm:text-[14px]"
+                      className="whitespace-pre-line text-center lg:text-justify text-[13px] leading-[1.9] text-neutral-600 sm:text-[14px]"
                     >
                       {p}
                     </p>
@@ -216,12 +207,12 @@ export default function LegalLayout({
 
           {/* Footer mobile */}
           <footer className="mt-20 flex flex-col gap-3 border-t border-neutral-200 pt-8 sm:flex-row sm:items-center sm:justify-between lg:hidden">
-            <p className="text-[9px] tracking-wide uppercase text-neutral-400">
-              © {new Date().getFullYear()} Casa Don Ramón. Todos los derechos reservados.
+            <p className="text-[9px] tracking-wide uppercase text-neutral-400 text-center sm:text-left">
+              © {new Date().getFullYear()} Tequila Don Ramón Personalizado · MX 924872
             </p>
             <Link
               href={footerLink.href}
-              className="text-[9px] font-medium tracking-widest uppercase text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+              className="text-[9px] font-medium tracking-widest uppercase text-neutral-500 transition-colors duration-200 hover:text-neutral-900 text-center sm:text-left"
             >
               {footerLink.label} →
             </Link>
