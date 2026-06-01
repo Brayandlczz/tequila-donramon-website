@@ -99,8 +99,8 @@ export default function Navbar() {
               src="/images/branding/logo.webp"
               alt="Don Ramón Personalizado"
               fill
-              sizes="128px"
-              className="object-contain object-left"
+              sizes="192px"
+              className="object-contain object-left scale-200 origin-left"
               priority
             />
           </a>

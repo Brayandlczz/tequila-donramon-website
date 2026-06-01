@@ -151,7 +151,7 @@ export default function Hero() {
             className="flex flex-col gap-5 sm:flex-row sm:items-center"
           >
             <a
-              href="#personalizacion"
+              href="/catalogs/catalogo-botellas-don-ramon.pdf"
               className="group relative inline-flex w-fit items-center gap-4 overflow-hidden border border-white/50 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.35em] text-white transition-all duration-300 hover:border-white hover:text-black"
             >
               {/* Fill on hover */}

@@ -59,8 +59,8 @@ const Logo: FC<{ size?: "sm" | "md" }> = ({ size = "md" }) => (
     <Image
       src="/images/branding/logo.webp"
       alt="Don Ramón Personalizado"
-      fill sizes="144px"
-      className="object-contain object-left brightness-0"
+      fill sizes="192px"
+      className={`object-contain object-left brightness-0 origin-left ${size === "sm" ? "scale-150" : "scale-170"}`}
     />
   </a>
 );
