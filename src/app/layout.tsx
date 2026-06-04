@@ -4,8 +4,6 @@ import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 
-// ─── Fonts ────────────────────────────────────────────────────────────────────
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,81 +20,80 @@ const cinzel = Cinzel({
   weight: ["400", "500", "600", "700"],
 });
 
-// ─── Schema ───────────────────────────────────────────────────────────────────
+const SITE_URL = "https://www.donramonpersonalizado.com";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://www.donramonpersonalizado.com/#organization",
-      name: "Casa Don Ramón",
-      url: "https://www.donramonpersonalizado.com",
+      "@type": "LocalBusiness",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Don Ramón Personalizado",
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://www.donramonpersonalizado.com/images/branding/logo.webp",
+        url: `${SITE_URL}/images/branding/logo.webp`,
       },
       description:
-        "Casa Don Ramón es una casa tequilera especializada en botellas premium personalizadas con grabado artesanal.",
+        "Franquicia dedicada a la personalización de botellas originales de Tequila Don Ramón para regalos, celebraciones y eventos especiales.",
       areaServed: {
         "@type": "Country",
         name: "México",
       },
+      sameAs: [],
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.donramonpersonalizado.com/#website",
-      url: "https://www.donramonpersonalizado.com",
-      name: "Tequila Don Ramón Personalizado",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Don Ramón Personalizado",
       inLanguage: "es-MX",
       publisher: {
-        "@id":
-          "https://www.donramonpersonalizado.com/#organization",
+        "@id": `${SITE_URL}/#organization`,
       },
     },
     {
       "@type": "Service",
-      name: "Personalización de Botellas Don Ramón",
+      "@id": `${SITE_URL}/#service`,
+      name: "Personalización de botellas Don Ramón",
       serviceType:
-        "Grabado artesanal y personalización premium de botellas de tequila",
+        "Personalización y grabado artesanal sobre botellas originales de Tequila Don Ramón",
       provider: {
-        "@id":
-          "https://www.donramonpersonalizado.com/#organization",
+        "@id": `${SITE_URL}/#organization`,
       },
       areaServed: {
         "@type": "Country",
         name: "México",
       },
       description:
-        "Botellas premium de Tequila Don Ramón personalizadas artesanalmente para bodas, eventos corporativos, aniversarios y ocasiones especiales.",
+        "Servicio de personalización de botellas originales de Tequila Don Ramón para bodas, XV años, aniversarios, regalos corporativos y ocasiones especiales. Operado por franquicia independiente.",
+      brand: {
+        "@type": "Brand",
+        name: "Tequila Don Ramón",
+      },
     },
   ],
 };
 
-// ─── Metadata ────────────────────────────────────────────────────────────────
-
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    "https://www.donramonpersonalizado.com"
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Tequila Don Ramón Personalizado",
+    default: "Don Ramón Personalizado | Botellas Grabadas para Eventos",
     template: "%s | Don Ramón Personalizado",
   },
   description:
-    "Botellas premium de Tequila Don Ramón personalizadas con grabado artesanal para bodas, XV años, aniversarios y eventos especiales.",
+    "Personaliza botellas originales de Tequila Don Ramón para bodas, XV años, aniversarios, regalos corporativos y eventos especiales. Franquicia independiente. Envíos a todo México.",
   alternates: {
-    canonical:
-      "https://www.donramonpersonalizado.com",
+    canonical: SITE_URL,
   },
   openGraph: {
     type: "website",
     locale: "es_MX",
-    url: "https://www.donramonpersonalizado.com",
-    siteName: "Tequila Don Ramón Personalizado",
-    title: "Tequila Don Ramón Personalizado",
+    url: SITE_URL,
+    siteName: "Don Ramón Personalizado",
+    title: "Don Ramón Personalizado | Botellas Grabadas para Eventos",
     description:
-      "Botellas premium personalizadas con grabado artesanal sobre vidrio.",
+      "Botellas originales de Tequila Don Ramón personalizadas por franquicia independiente para regalos, celebraciones y eventos especiales.",
     images: [
       {
         url: "/branding/og-image.jpg",
@@ -108,9 +105,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tequila Don Ramón Personalizado",
+    title: "Don Ramón Personalizado | Botellas Grabadas para Eventos",
     description:
-      "Botellas premium personalizadas para ocasiones especiales.",
+      "Personalización de botellas originales de Tequila Don Ramón para ocasiones especiales.",
     images: ["/branding/og-image.jpg"],
   },
   icons: {
@@ -120,15 +117,11 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-// ─── Viewport ────────────────────────────────────────────────────────────────
-
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#0a0804",
 };
-
-// ─── Layout ──────────────────────────────────────────────────────────────────
 
 export default function RootLayout({
   children,
@@ -154,7 +147,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="min-h-full bg-[#0a0804] text-white flex flex-col font-sans">
+      <body className="flex min-h-full flex-col bg-[#0a0804] font-sans text-white">
         {children}
         <Analytics />
       </body>

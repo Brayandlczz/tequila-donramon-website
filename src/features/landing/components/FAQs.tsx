@@ -12,33 +12,33 @@ import {
 const FAQS = [
   {
     icon: BadgeCheck,
-    question: "¿Las botellas son originales de la marca?",
+    question: "¿Las botellas son originales de Tequila Don Ramón?",
     answer:
-      "Sí. Trabajamos exclusivamente con botellas originales y auténticas de la línea Don Ramón, garantizando calidad, presentación y autenticidad en cada pieza personalizada.",
+      "Sí. Todas nuestras personalizaciones se realizan sobre botellas originales y auténticas de la línea Tequila Don Ramón, conservando su presentación, calidad y autenticidad.",
   },
   {
     icon: Brush,
-    question: "¿Puedo personalizar el diseño completamente?",
+    question: "¿Qué puedo personalizar en mi botella?",
     answer:
-      "Sí. Puedes elegir un diseño exclusivo solicitado por ti o seleccionar uno de nuestro catálogo. Personalizamos nombres, logotipos, fechas, frases especiales y más, creando piezas únicas para cada ocasión.",
+      "Podemos personalizar nombres, fechas, logotipos, frases especiales, mensajes conmemorativos y diseños exclusivos. También contamos con opciones prediseñadas listas para adaptar a tu evento.",
   },
   {
     icon: Sparkles,
-    question: "¿Qué incluye la experiencia personalizada?",
+    question: "¿Existe un pedido mínimo para personalizar?",
     answer:
-      "Cada botella puede incluir grabado artesanal personalizado y acabados especiales. Contamos con grabados disponibles en 11 colores distintos para adaptarnos al estilo y temática de tu evento.",
+      "No. Puedes solicitar desde una sola botella personalizada hasta pedidos para eventos corporativos, bodas, aniversarios o celebraciones de gran volumen.",
   },
   {
     icon: Package,
-    question: "¿Cuánto tiempo tarda un pedido en llegar a mi puerta?",
+    question: "¿Cuánto tiempo tarda la producción y entrega?",
     answer:
-      "El tiempo estimado de entrega es de aproximadamente 15 días hábiles a partir de la confirmación del pago. El tiempo puede variar según la cantidad y complejidad del diseño solicitado.",
+      "El tiempo promedio es de 10 a 15 días hábiles después de aprobar el diseño y confirmar el pago. En pedidos especiales o grandes volúmenes, el tiempo puede variar según la complejidad del proyecto.",
   },
   {
     icon: BriefcaseBusiness,
-    question: "¿Pueden realizar pedidos para eventos corporativos?",
+    question: "¿Realizan envíos a todo México?",
     answer:
-      "Sí. Personalizamos botellas para todo tipo de eventos: bodas, aniversarios, cumpleaños, eventos corporativos, lanzamientos, regalos empresariales, celebraciones y temporadas especiales.",
+      "Sí. Enviamos a cualquier parte de México mediante paquetería especializada para garantizar que cada botella llegue protegida y en perfectas condiciones.",
   },
 ] as const;
 

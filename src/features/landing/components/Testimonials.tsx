@@ -182,6 +182,9 @@ function ReviewCard({ review }: { review: Review }) {
           >
             {review.author}
           </p>
+          <p className="truncate text-[10px] uppercase tracking-[0.2em] text-neutral-600 mt-0.5">
+            {review.event}
+          </p>
         </div>
       </header>
 

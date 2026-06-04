@@ -93,9 +93,9 @@ const OCCASIONS: Occasion[] = [
 
 const STATS = [
   {
-    value: "100%",
-    label: "Piezas únicas e irrepetibles.",
-    aria: "100 por ciento",
+    value: "+50",
+    label: "Diseños personalizables",
+    aria: "Más de 50 diseños exclusivos",
   },
   {
     value: "8",

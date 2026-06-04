@@ -36,19 +36,19 @@ function PdfIcon({ className }: { className?: string }) {
 const ACCESSORIES = [
   {
     title:      "Cajas grabadas",
-    description: "Para regalar con intención.",
+    description: "Presentación premium personalizada para tu botella.",
     image:      "/images/accesories/engraved-box.avif",
     catalogUrl: "/catalogs/catalogo-accesorios-don-ramon.pdf",
   },
   {
     title:      "Tequileros",
-    description: "Para compartir el momento.",
+    description: "Set grabado ideal para compartir en eventos.",
     image:      "/images/accesories/portashots.avif",
     catalogUrl: "/catalogs/catalogo-accesorios-don-ramon.pdf",
   },
   {
     title:      "Trajineras",
-    description: "Para celebrar nuestras raíces.",
+    description: "Un detalle mexicano único para celebraciones memorables.",
     image:      "/images/accesories/shot-holder.avif",
     catalogUrl: "/catalogs/catalogo-accesorios-don-ramon.pdf",
   },

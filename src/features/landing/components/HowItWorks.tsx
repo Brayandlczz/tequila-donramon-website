@@ -25,7 +25,7 @@ const STEPS = [
   },
   {
     number: "3",
-    title: "Coordina y recibe",
+    title: "Confirma y recibe",
     desc: "Contáctanos vía WhatsApp para acordar pago y entrega. Tu botella personalizada llegará perfectamente embalada, lista para el momento que mereces conmemorar.",
     image: "/images/steps/step-3.webp",
     alt: "Botella Don Ramón Edición especial Luis Miguel personalizada lista para disfrutarse",
@@ -202,7 +202,7 @@ export default function HowItWorks() {
             aria-label="Descargar catálogo de botellas Don Ramón personalizadas"
             className="rounded-full bg-[#c92532] px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.3em] text-white shadow-[0_14px_28px_rgba(201,37,50,.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#b3202c] hover:shadow-[0_18px_36px_rgba(201,37,50,.30)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c92532] focus-visible:ring-offset-2"
           >
-            Ver todo el catálogo
+            Ver catálogo de botellas
           </a>
           </motion.div>
 
