@@ -82,10 +82,10 @@ function WhatsAppBlock() {
             className="whitespace-nowrap text-[12px] font-black tracking-tight text-neutral-900"
             style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
           >
-            Menos rollo, más tequila.
+            ¿Prefieres hablar directamente?
           </p>
-          <p className="mt-1 text-[11px] leading-snug text-neutral-500">
-            ¿Prefieres ir al grano? Escríbenos directamente.
+          <p className="mt-1 text-[11px] leading-snug text-neutral-500 whitespace-nowrap">
+            Te respondemos en menos de 24 horas.
           </p>
         </div>
         <a
@@ -110,10 +110,10 @@ function WhatsAppBlockMobile() {
         className="text-[13px] font-black tracking-tight text-neutral-900"
         style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
       >
-        Menos rollo, más tequila.
+        ¿Prefieres hablar directamente?
       </p>
       <p className="mt-1 text-[11px] leading-relaxed text-neutral-500">
-        ¿Prefieres ir al grano? Escríbenos directamente.
+        Te respondemos en menos de 24 horas.
       </p>
       <a
         href="https://wa.me/528148907348"
@@ -147,9 +147,9 @@ function HeaderContent({ centered = false }: { centered?: boolean }) {
         className={`mb-5 text-[clamp(2.8rem,4.5vw,5rem)] font-black leading-[.9] tracking-tight text-neutral-900 ${centered ? "text-center" : ""}`}
         style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
       >
-        Tu botella
+        Tu ocasión merece
         <br />
-        <span className="text-[#c92532]">empieza aquí.</span>
+        <span className="text-[#c92532]">una botella única.</span>
       </motion.h2>
 
       <motion.p
@@ -157,7 +157,7 @@ function HeaderContent({ centered = false }: { centered?: boolean }) {
         className={`max-w-sm text-[14px] leading-[1.8] text-neutral-700 ${centered ? "text-center" : "text-justify"}`}
       >
         Cuéntanos para quién es, cuántas botellas necesitas y cualquier detalle especial.
-        Te responderemos en menos de 24 horas.
+        Te ayudaremos a encontrar el diseño ideal para tu ocasión.
       </motion.p>
     </>
   );
@@ -289,7 +289,7 @@ export default function Contact() {
                     Cuéntanos tu historia
                   </p>
                   <p className="text-center text-[11px] italic text-neutral-500 lg:text-left">
-                    Cada botella tiene un propósito único — el tuyo merece contarse bien.
+                    Compártenos tu idea y nosotros nos encargamos del resto.
                   </p>
                   <InputField
                     label=""
