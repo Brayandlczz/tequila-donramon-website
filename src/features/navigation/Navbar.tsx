@@ -91,20 +91,19 @@ export default function Navbar() {
           ].join(" ")}
         >
           <a
-            href="/"
+          href="/"
             aria-label="Don Ramón Personalizado — Ir al inicio"
-            className="relative h-8 w-30 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c92532] sm:h-9 sm:w-32"
+            className="relative block h-10 w-15 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c92532]"
           >
             <Image
               src="/images/branding/logo.webp"
               alt="Don Ramón Personalizado"
               fill
-              sizes="192px"
-              className="object-contain object-left scale-200 origin-left"
+              sizes="60px"
+              className="object-contain object-left"
               priority
             />
           </a>
-
           <nav
             aria-label="Navegación principal"
             className="hidden items-center gap-10 md:flex lg:gap-12"
