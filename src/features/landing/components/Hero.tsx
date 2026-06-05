@@ -90,12 +90,12 @@ export default function Hero() {
         className="absolute inset-0 z-0 scale-[1.04]"
       >
         <Image
-          src="/images/backgrounds/hero-bg-op.avif"
+          src="/images/backgrounds/hero-bg.avif"
           alt=""
           fill
           priority
           quality={80}
-          sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
+          sizes="100vw"
           className="object-cover object-center"
         />
       </motion.div>
