@@ -179,7 +179,7 @@ export default function HowItWorks() {
 
           <ol
             aria-label="Pasos del proceso de personalización Don Ramón"
-            className="flex flex-col gap-14 sm:gap-20"
+            className="flex flex-col gap-6 sm:gap-6"
           >
             {STEPS.map((step) => (
               <li key={step.number}>

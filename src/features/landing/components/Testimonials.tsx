@@ -279,7 +279,7 @@ export default function Testimonials() {
             transition={{ duration: 0.65, delay: 0.1, ease: EASE }}
             className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-neutral-500"
           >
-            Más de 50 personas han hecho de sus eventos algo inolvidable.
+            Más de 50 personas han hecho de sus eventos algo inolvidable con Tequila don Ramón Personalizado.
           </motion.p>
         </div>
 
