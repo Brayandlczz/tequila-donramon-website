@@ -95,7 +95,7 @@ export default function Hero() {
           fill
           priority
           quality={80}
-          sizes="100vw"
+          sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
           className="object-cover object-center"
         />
       </motion.div>

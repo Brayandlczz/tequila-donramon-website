@@ -10,128 +10,82 @@ interface Review {
 }
 
 const REVIEWS: Review[] = [
-  // BOTELLA
   {
     quote:
       "La botella personalizada fue un regalo para alguien muy especial. El grabado simplemente quedó hermoso.",
     author: "Alejandro Lara",
     event: "Aniversario · Monterrey",
   },
-
-  // CAJA
   {
     quote:
       "Las cajas personalizadas elevaron por completo la presentación. Me enamoré desde el primer vistazo.",
     author: "Arely Ortiz",
     event: "XV Años · Querétaro",
   },
-
-  // TRAJINERA
   {
     quote:
       "La trajinera fue el detalle que todos recordaron. Tenía ese toque mexicano, alegre y muy bien logrado.",
     author: "Rodrigo Vega",
     event: "Celebración · Xochimilco",
   },
-
-  // BOTELLA
   {
     quote:
       "Mandamos a grabar el nombre de mi abuelo y quedó precioso. Toda la familia se conmovió al verlo.",
     author: "Valeria Sánchez",
     event: "Cumpleaños · Mérida",
   },
-
-  // EXPERIENCIA
   {
     quote:
       "Por WhatsApp la atención fue muy rápida. Revisamos el diseño, lo aprobaron y llegó tal como esperábamos.",
     author: "Eduardo Castillo",
     event: "Cumpleaños · Puebla",
   },
-
-  // CAJA
   {
     quote:
       "Las cajas personalizadas hicieron que cada botella se sintiera aún más especial, elegante y memorable.",
     author: "Patricia Gómez",
     event: "Boda · Querétaro",
   },
-
-  // BOTELLA
   {
     quote:
       "La botella y su caja se sentían como una pieza de colección. Fue un regalo que emocionó muchísimo.",
     author: "Mauricio Herrera",
     event: "Regalo Personal · CDMX",
   },
-
-  // TRAJINERA
   {
     quote:
       "La trajinera personalizada fue el centro de la mesa. Todos querían verla de cerca y tomarle fotos.",
     author: "Andrea Navarro",
     event: "XV Años · Aguascalientes",
   },
-
-  // BOTELLA
   {
     quote:
       "Elegimos Don Ramón para nuestra boda y las botellas terminaron siendo de los recuerdos favoritos.",
     author: "Daniela Flores",
     event: "Boda · San Luis Potosí",
   },
-
-  // CORPORATIVO
   {
     quote:
       "Pedimos 80 botellas para un evento corporativo y cada detalle se sintió premium, elegante y muy bien cuidado.",
     author: "María de Lourdes",
     event: "Corporativo · CDMX",
   },
-
-  // CAJA
   {
     quote:
       "Llegó perfectamente empacado y listo para regalar. La presentación cuidada hizo toda la diferencia.",
     author: "Luis Cárdenas",
     event: "Regalo Personal · León",
   },
-
-  // BOTELLA
   {
     quote:
       "Nos ayudaron a aterrizar el diseño desde el inicio. El resultado quedó justo como lo imaginábamos.",
     author: "Fernanda Cruz",
     event: "Aniversario · Puebla",
   },
-
-  // TRAJINERA
-  {
-    quote:
-      "Queríamos algo mexicano, elegante y diferente. La trajinera con tequila superó nuestras expectativas.",
-    author: "Mariana Lozano",
-    event: "Boda · Oaxaca",
-  },
-
-  // BOTELLA
-  {
-    quote:
-      "El acabado luce increíble en persona. Se nota el cuidado en el grabado, la caja y cada detalle.",
-    author: "Ricardo Torres",
-    event: "Aniversario · Guadalajara",
-  },
-
-  // CORPORATIVO
-  {
-    quote:
-      "Nuestros invitados se llevaron botellas con caja personalizada y todavía nos preguntan dónde las hicimos.",
-    author: "Héctor Silva",
-    event: "Evento Corporativo · Cancún",
-  },
 ];
 
-const ROW_2: Review[] = [...REVIEWS.slice(3), ...REVIEWS.slice(0, 3)];
+const ROW_1 = REVIEWS.slice(0, 8);
+const ROW_2 = REVIEWS.slice(4, 12);
 
 const MARQUEE_STYLES = `
   @keyframes marquee-left {
@@ -167,9 +121,7 @@ function ReviewCard({ review }: { review: Review }) {
       <header className="flex items-center gap-3">
         <div
           className="flex h-10.5 w-10.5 shrink-0 items-center justify-center rounded-full bg-[#c92532] text-[15px] font-semibold text-white select-none"
-          style={{
-            boxShadow: "0 8px 18px rgba(217, 13, 43, 0.18)",
-          }}
+          style={{ boxShadow: "0 8px 18px rgba(217, 13, 43, 0.18)" }}
           aria-hidden="true"
         >
           {review.author.charAt(0).toUpperCase()}
@@ -190,11 +142,7 @@ function ReviewCard({ review }: { review: Review }) {
 
       <div role="img" aria-label="5 de 5 estrellas" className="flex gap-px">
         {Array.from({ length: 5 }, (_, i) => (
-          <span
-            key={i}
-            className="text-[16px] leading-none text-yellow-400"
-            aria-hidden="true"
-          >
+          <span key={i} className="text-[16px] leading-none text-yellow-400" aria-hidden="true">
             ★
           </span>
         ))}
@@ -285,7 +233,7 @@ export default function Testimonials() {
 
         <div className="relative">
           <div className="flex flex-col gap-3.5">
-            <MarqueeRow items={REVIEWS} />
+            <MarqueeRow items={ROW_1} />
             <MarqueeRow items={ROW_2} reverse />
           </div>
 
