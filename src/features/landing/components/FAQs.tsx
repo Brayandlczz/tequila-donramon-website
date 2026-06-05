@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     icon: Sparkles,
-    question: "¿Existe un pedido mínimo para personalizar?",
+    question: "¿Existe un mínimo de botellas para personalizar?",
     answer:
       "No. Puedes solicitar desde una sola botella personalizada hasta pedidos para eventos corporativos, bodas, aniversarios o celebraciones de gran volumen.",
   },
@@ -32,13 +32,13 @@ const FAQS = [
     icon: Package,
     question: "¿Cuánto tiempo tarda la producción y entrega?",
     answer:
-      "El tiempo promedio es de 10 a 15 días hábiles después de aprobar el diseño y confirmar el pago. En pedidos especiales o grandes volúmenes, el tiempo puede variar según la complejidad del proyecto.",
+      "El tiempo promedio es de 12 a 15 días hábiles después de aprobar el diseño y confirmar el pago. En pedidos especiales o grandes volúmenes, el tiempo puede variar según la complejidad del proyecto.",
   },
   {
     icon: BriefcaseBusiness,
     question: "¿Realizan envíos a todo México?",
     answer:
-      "Sí. Enviamos a cualquier parte de México mediante paquetería especializada para garantizar que cada botella llegue protegida y en perfectas condiciones.",
+      "Sí. Enviamos a cualquier parte de México mediante paquetería para garantizar que cada botella llegue protegida y en perfectas condiciones.",
   },
 ] as const;
 

@@ -90,7 +90,7 @@ export default function Hero() {
         className="absolute inset-0 z-0 scale-[1.04]"
       >
         <Image
-          src="/images/backgrounds/hero-bg.avif"
+          src="/images/backgrounds/hero-bg-op.avif"
           alt=""
           fill
           priority
