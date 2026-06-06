@@ -27,7 +27,7 @@ export default function WhatsAppFAB() {
       aria-label="Cotizar por WhatsApp"
       className="
         group
-        fixed bottom-4 right-6 z-50
+        fixed bottom-6 sm:bottom-4 right-6 z-50
         flex h-14 w-14 items-center justify-center
         rounded-full bg-[#25D366]
         shadow-[0_8px_32px_rgba(37,211,102,0.45)]
