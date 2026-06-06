@@ -38,7 +38,7 @@ export default function WhatsAppFAB() {
     >
       <span className="
         pointer-events-none absolute right-16
-        whitespace-nowrap rounded-md bg-black/80 px-3 py-1.5
+        whitespace-nowrap rounded-md bg-black/90 px-3 py-1.5
         text-[11px] font-medium tracking-wide text-white
         opacity-0 transition-opacity duration-200
         group-hover:opacity-100
