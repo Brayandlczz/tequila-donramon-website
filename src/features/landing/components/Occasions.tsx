@@ -94,7 +94,7 @@ const OCCASIONS: Occasion[] = [
 const STATS = [
   {
     value: "+50",
-    label: "Diseños personalizables",
+    label: "Diseños personalizables.",
     aria: "Más de 50 diseños exclusivos",
   },
   {

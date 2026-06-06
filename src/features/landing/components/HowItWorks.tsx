@@ -26,7 +26,7 @@ const STEPS = [
   {
     number: "3",
     title: "Confirma y recibe",
-    desc: "Contáctanos vía WhatsApp para acordar pago y entrega. Tu botella personalizada llegará perfectamente embalada, lista para el momento que mereces conmemorar.",
+    desc: "Contáctanos vía WhatsApp para acordar el pago y detalles de entrega. Tu botella personalizada llegará perfectamente embalada, lista para el momento que mereces conmemorar.",
     image: "/images/steps/step-3.webp",
     alt: "Botella Don Ramón Edición especial Luis Miguel personalizada lista para disfrutarse",
     imageLeft: true,
