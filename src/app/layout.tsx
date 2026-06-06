@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
+import WhatsAppFAB from "@/features/landing/components/WhastappFAB";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -149,6 +150,7 @@ export default function RootLayout({
 
       <body className="flex min-h-full flex-col bg-[#0a0804] font-sans text-white">
         {children}
+        <WhatsAppFAB />
         <Analytics />
       </body>
     </html>

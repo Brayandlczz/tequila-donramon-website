@@ -7,10 +7,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const PRODUCTS = [
-  { img: "/images/gallery/bottle-01.webp" },
-  { img: "/images/gallery/bottle-02.webp" },
-  { img: "/images/gallery/bottle-03.webp" },
-  { img: "/images/gallery/bottle-04.webp" },
+  { img: "/images/carousel/bottle-01.webp" },
+  { img: "/images/carousel/bottle-02.webp" },
+  { img: "/images/carousel/bottle-03.webp" },
+  { img: "/images/carousel/bottle-04.webp" },
 ];
 
 function ProductCard() {
