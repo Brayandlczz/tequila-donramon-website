@@ -192,8 +192,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Línea vertical decorativa */}
-      <div className="absolute bottom-0 right-9 z-30 hidden h-28 w-px bg-linear-to-b from-white/40 to-transparent lg:block" />
     </section>
   );
 }
